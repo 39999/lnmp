@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# 欢迎语
+echo "欢迎使用下载脚本！"
+
+# 提供下载选项
+echo "请选择要下载的内容："
+echo "1. WordPress 最新版本"
+echo "2. phpMyAdmin 5.2.1 全语言版本"
+echo "3. Faka Wiki 下载页面"
+echo "4. LNMP 2.1 完整版"
+
+# 获取用户输入
+read -p "请输入选择的编号（如 1）: " choice
+
+# 下载所选内容
+case $choice in
+    1)
+        echo "正在下载 WordPress 最新版本..."
+        wget https://wordpress.org/latest.zip -P /file
+        ;;
+    2)
+        echo "正在下载 phpMyAdmin 5.2.1 全语言版本..."
+        wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip -P /file
+        ;;
+    3)
+        echo "正在下载 Faka Wiki 下载页面..."
+        wget https://faka.wiki/download.php -P /file
+        ;;
+    4)
+        echo "正在下载 LNMP 2.1 完整版..."
+        wget https://soft.lnmp.com/lnmp/lnmp2.1-full.tar.gz -P /file
+        ;;
+    *)
+        echo "无效的选择。"
+        exit 1
+        ;;
+esac
+
+echo "下载完成！"
